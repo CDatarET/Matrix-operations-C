@@ -124,5 +124,22 @@ int main() {
 		}
 		printf("\n");
         }
+        
+        //transpose
+        printf("transpose of matrix 1 \n");
+        for(int i = 0; i < rows; i++){
+        	for(int j = 0; j < cols; j++){
+        		printf("%d ", a[j][i]);
+        	}
+        	printf("\n");
+        }
+        
+        printf("transpose of matrix 2 \n");
+        for(int i = 0; i < rows; i++){
+        	for(int j = 0; j < cols; j++){
+        		printf("%d ", b[j][i]);
+        	}
+        	printf("\n");
+        }
     return 0;
 }
