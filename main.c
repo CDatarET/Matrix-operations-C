@@ -73,8 +73,56 @@ int main() {
             printf("no saddle");
         }
         else{
-            printf("saddle is %d found at (%d,%d)", saddle, row,col);
+            printf("saddle is %d found at (%d,%d) \n", saddle, row,col);
         }
-
+        
+	saddle = 0;
+	saddleFound = 0;
+    for(int i = 0; i < rows; i++){
+        saddle = b[i][0];
+        row = i;
+        col = 0;
+        for(int j = 0; j < cols - 1; j++){
+            if(saddle > b[i][j + 1]){
+                saddle = b[i][j+1];
+                col = j+1;
+            }
+            else{
+                continue;
+            }
+        }
+        int checkBreak = 0;
+        for(int k = 0; k < rows; k++){
+            if(saddle < b[k][col]){
+                checkBreak = 1;
+                break;
+            }
+        }
+        if(!checkBreak){
+            saddleFound = 1;
+        }
+        if(saddleFound){
+            break;
+        }
+    }
+    
+    if(!saddleFound){
+            printf("no saddle");
+        }
+        else{
+            printf("saddle is %d found at (%d,%d)\n", saddle, row,col);
+        }
+        //multiply matrix
+        printf("Matrix 1 X Matrix 2 is \n");
+        for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+			int mult = 0;
+			for(int k = 0; k < rows; k++){
+				mult = mult + a[i][k]*b[k][j];
+			}
+			printf("%d ", mult);
+		}
+		printf("\n");
+        }
     return 0;
 }
